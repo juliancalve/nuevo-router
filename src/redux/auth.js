@@ -56,7 +56,7 @@ export const LoginAction = ({ email, password, navigate }) => async dispatch => 
 }
 
 export const LogoutAction = (navigate) => dispatch => {
-    // localStorage.clear();
+    localStorage.clear();
     navigate('/login');
     dispatch({
         type: LOGOUT
