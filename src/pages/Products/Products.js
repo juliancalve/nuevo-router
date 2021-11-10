@@ -1,9 +1,16 @@
 import { Link, Outlet } from "react-router-dom"
 import { useNavigate } from 'react-router';
+import { useDispatch } from "react-redux";
+import { LogoutAction } from "../../redux/auth";
 
 const Products = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(LogoutAction(navigate));
+    }
 
     return (
         <div>
@@ -17,6 +24,7 @@ const Products = () => {
                 <p>Tipo de producto</p>
                 <Outlet />
             </div>
+            <button onClick={handleLogout}>LOGOUT</button>
         </div>
     )
 }
